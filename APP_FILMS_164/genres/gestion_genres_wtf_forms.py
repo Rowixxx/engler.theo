@@ -43,7 +43,7 @@ class FormWTFUpdateGenre(FlaskForm):
                                                                           ])
     date_genre_wtf_essai = DateField("Essai date", validators=[InputRequired("Date obligatoire"),
                                                                DataRequired("Date non valide")])
-    submit = SubmitField("Update genre")
+    submit = SubmitField("Update model")
 
 
 class FormWTFDeleteGenre(FlaskForm):
