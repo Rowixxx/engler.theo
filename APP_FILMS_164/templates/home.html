@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} StockX {% endblock %}
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Texte qui apparait sur tout les page
+			</h3>
+				<div class="d-flex justify-content-center centered-image">
+    				<img src="{{ url_for('static', filename='gif.gif') }}" alt="oui" class="img-fluid custom-image-size">
+            </div>
+		</div>
+	</div>
+</div>
+{% endblock %}
