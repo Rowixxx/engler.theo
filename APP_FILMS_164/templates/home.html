@@ -1,13 +1,37 @@
 {% extends "base.html" %}
 {% block title %} StockX {% endblock %}
 {% block body %}
+<style>
+.centered-text {
+    text-align: center;
+    font-size: 16px;
+}
+</style>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
-			<h3>
-				Texte qui apparait sur tout les page
-			</h3>
-				<div class="d-flex justify-content-center centered-image">
+		<div class="col-md-12 centered-text">
+			<h1>Bonjour Olivier,</h1>
+			<p>
+				Je ne pensais pas qu'un jour je concevrais la page d'accueil d'un projet IT de cette nature. J'ai conscience que vous êtes probablement en train de vous confronter à la correction de nombreux projets, certains moins enthousiasmants que d'autres.
+			</p>
+			<p>
+				Cela dit, tout dépend si vous ouvrez ou non les dossiers des étudiants. Partons du principe que j'ai suscité votre curiosité et que mon projet a attiré suffisamment votre attention pour que vous ayez envie d'ouvrir le mien.
+			</p>
+				Durant vos cours, vous avez toujours démontré une passion pour l'intelligence artificielle.</h1>
+			<p>
+				C'est d'ailleurs l'une de mes passions également, particulièrement depuis la sortie de Chat GPT. C'est pourquoi je me suis dit que vous seriez sans doute intéressé par cette vidéo que je vous partage ici :
+			</p>
+			<p>
+				<a href="https://www.youtube.com/watch?v=_FLoM0xcDG0">https://www.youtube.com/watch?v=_FLoM0xcDG0</a>
+			</p>
+				Il s'agit du projet Bittensor</h1>
+			<p>
+				Une plateforme de machine learning décentralisée basée sur la technologie blockchain. Son but est de construire un réseau mondial d'ordinateurs qui partagent et collaborent sur l'apprentissage automatique.
+			</p>
+			<p>
+				Je tiens à préciser que ceci n'est en aucun cas un conseil en investissement. J'espère simplement que vous prendrez le temps de regarder la vidéo en entier. Mon but est de vous faire découvrir quelque chose de nouveau et, peut-être, un peu surprenant. De mon point de vue, il me semble que c'est là l'avenir de l'IA.
+			</p>
+			<div class="d-flex justify-content-center centered-image">
     				<img src="{{ url_for('static', filename='gif.gif') }}" alt="oui" class="img-fluid custom-image-size">
             </div>
 		</div>
