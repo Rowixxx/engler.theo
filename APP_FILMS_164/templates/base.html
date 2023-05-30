@@ -26,6 +26,13 @@
 	<!-- https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/ -->
 	<link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
 
+	<!-- Ajout de CSS pour changer la couleur de fond à noir -->
+	<style>
+	    body {
+	        background-color: black !important;
+	    }
+	</style>
+
 	{% block head %}
 	{% endblock %}
 
