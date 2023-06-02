@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %} Editer un model {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Editer un model
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update.modele_chaussure.label }}<br>
+						{{ form_update.modele_chaussure(size=32) }}<br>
+						{% for error in form_update.modele_chaussure.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update.taille_chaussures.label }}<br>
+						{{ form_update.taille_chaussures(size=32) }}<br>
+						{% for error in form_update.taille_chaussures.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update.prix_chaussure.label }}<br>
+						{{ form_update.prix_chaussure(size=32) }}<br>
+						{% for error in form_update.prix_chaussure.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form_update.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

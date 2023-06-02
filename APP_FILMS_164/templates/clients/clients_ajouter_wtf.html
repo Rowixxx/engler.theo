@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un GENRE (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Ajouter un nouveau clients
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form.prenom_client.label }}<br>
+						{{ form.prenom_client(size=32) }}<br>
+						{% for error in form.prenom_client.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.nom_client.label }}<br>
+						{{ form.nom_client(size=32) }}<br>
+						{% for error in form.nom_client.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.date_naissance_client.label }}<br>
+						{{ form.date_naissance_client(size=32) }}<br>
+						{% for error in form.date_naissance_client.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.sexe_client.label }}<br>
+						{{ form.sexe_client(size=32) }}<br>
+						{% for error in form.sexe_client.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.nationalite_client.label }}<br>
+						{{ form.nationalite_client(size=32) }}<br>
+						{% for error in form.nationalite_client.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
