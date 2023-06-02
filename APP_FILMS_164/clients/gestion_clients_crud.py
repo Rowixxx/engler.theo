@@ -107,15 +107,18 @@ def clients_ajouter_wtf():
                 sexe_client = form.sexe_client.data
                 nationalite_client = form.nationalite_client.data
 
-                valeurs_insertion_dictionnaire = {"value_prenom_clients": prenom_client,
-                                                  "value_prix_chaussure": nom_client,
+                valeurs_insertion_dictionnaire = {"value_prenom_client": prenom_client,
+                                                  "value_nom_client": nom_client,
                                                   "value_date_naissance_client": date_naissance_client,
                                                   "value_sexe_client": sexe_client,
                                                   "value_nationalite_client": nationalite_client,
                                                   }
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_genre = """INSERT INTO t_chaussure (id_chaussure,model, prix, taille) VALUES (NULL,%(value_intitule_genre)s, %(value_prix_chaussure)s, %(value_taille_chaussure)s) """
+                strsql_insert_genre = """INSERT INTO t_personne (prenom, nom, date_naissance, sexe, nationalité) 
+                VALUES (%(value_prenom_client)s, %(value_nom_client)s, %(value_date_naissance_client)s, 
+                %(value_sexe_client)s, %(value_nationalite_client)s)"""
+
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
 
@@ -123,7 +126,7 @@ def clients_ajouter_wtf():
                 print(f"Données insérées !!")
 
                 # Pour afficher et constater l'insertion de la valeur, on affiche en ordre inverse. (DESC)
-                return redirect(url_for('genres_afficher', order_by='DESC', id_genre_sel=0))
+                return redirect(url_for('clients_afficher', order_by='DESC', id_genre_sel=0))
 
         except Exception as Exception_genres_ajouter_wtf:
             raise ExceptionGenresAjouterWtf(f"fichier : {Path(__file__).name}  ;  "
@@ -163,23 +166,22 @@ def clients_update_wtf():
     try:
         print(" on submit ", form_update.validate_on_submit())
         if form_update.validate_on_submit():
-            # Récupèrer la valeur du champ depuis "genre_update_wtf.html" après avoir cliqué sur "SUBMIT".
-            # Puis la convertir en lettres minuscules.
-            modele_chaussure_update = form_update.modele_chaussure.data
-            prix_chaussure_update = form_update.prix_chaussure.data
-            taille_chaussure_update = form_update.taille_chaussures.data
-            #name_genre_update = name_genre_update.lower()
+            prenom_client = form_update.prenom_client.data
+            nom_client = form_update.nom_client.data
+            date_naissance_client = form_update.date_naissance_client.data
+            sexe_client = form_update.sexe_client.data
+            nationalite_client = form_update.nationalite_client.data
 
-
-            valeur_update_dictionnaire = {"value_id_genre": id_genre_update,
-                                          "value_modele_chassure": modele_chaussure_update,
-                                          "value_prix_chassure": prix_chaussure_update,
-                                          "value_taille_chassure": taille_chaussure_update
+            valeur_update_dictionnaire = {"value_prenom_client": prenom_client,
+                                          "value_nom_client": nom_client,
+                                          "value_date_naissance_client": date_naissance_client,
+                                          "value_sexe_client": sexe_client,
+                                          "value_nationalite_client": nationalite_client,
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
-            str_sql_update_intitulegenre = """UPDATE t_chaussure SET model = %(value_modele_chassure)s,
-            prix = %(value_prix_chassure)s, taille = %(value_taille_chassure)s WHERE id_chaussure = %(value_id_genre)s """
+            str_sql_update_intitulegenre = """UPDATE t_personne SET prenom = %(value_prenom_client)s,
+            nom = %(value_nom_clients)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -202,9 +204,12 @@ def clients_update_wtf():
              #     data_nom_genre["intitule_genre"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
-            form_update.modele_chaussure.data = data_nom_genre["model"]
-            form_update.prix_chaussure.data = data_nom_genre["prix"]
-            form_update.taille_chaussures.data = data_nom_genre["taille"]
+            form_update.prenom_client.data = data_nom_genre["prenom"]
+            form_update.nom_client.data = data_nom_genre["nom"]
+            form_update.date_naissance_client.data = data_nom_genre["date_naissance"]
+            form_update.sexe_client.data = data_nom_genre["sexe"]
+            form_update.nationalite_client.data = data_nom_genre["nationalité"]
+
 
     except Exception as Exception_genre_update_wtf:
         raise ExceptionGenreUpdateWtf(f"fichier : {Path(__file__).name}  ;  "
@@ -251,7 +256,7 @@ def clients_delete_wtf():
                 # le formulaire "genres/genre_delete_wtf.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
                 #data_films_attribue_genre_delete = session['data_films_attribue_genre_delete']
                 #print("data_films_attribue_genre_delete ", data_films_attribue_genre_delete)
-                data_nom_genre= session['data_chaussure']
+                data_nom_genre = session['data_chaussure']
                 form_delete.chaussure_delete_wtf.data = data_nom_genre['model']
 
                 flash(f"Effacer le genre de façon définitive de la BD !!!", "danger")

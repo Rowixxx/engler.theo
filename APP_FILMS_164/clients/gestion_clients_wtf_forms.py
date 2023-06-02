@@ -37,10 +37,12 @@ class FormWTFUpdateGenre(FlaskForm):
         Dans le formulaire "genre_update_wtf.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    modele_chaussure = StringField("Modèle chaussure", validators=[DataRequired()])
-    taille_chaussures = IntegerField("Taille chaussure", validators=[DataRequired()])
-    prix_chaussure = IntegerField("Prix chaussure", validators=[DataRequired()])
-    submit = SubmitField("Update model")
+    prenom_client = StringField("Prénom du client", validators=[DataRequired()])
+    nom_client = StringField("Nom du client", validators=[DataRequired()])
+    date_naissance_client = DateField("Date de naissance", validators=[DataRequired()])
+    sexe_client = StringField("Sexe", validators=[DataRequired()])
+    nationalite_client = StringField("Nationalité", validators=[DataRequired()])
+    submit = SubmitField("Enregistrer le nouveau client")
 
 
 class FormWTFDeleteGenre(FlaskForm):
