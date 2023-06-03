@@ -54,6 +54,10 @@ try:
     from APP_FILMS_164.clients import gestion_clients_crud
     from APP_FILMS_164.clients import gestion_clients_wtf_forms
 
+
+    from APP_FILMS_164.adresses import gestion_adresses_crud
+    from APP_FILMS_164.adresses import gestion_adresse_wtf_forms
+
 except Exception as Exception_init_app_films_164:
     print(f"4567756434 Une erreur est survenue {type(Exception_init_app_films_164)} dans"
           f"__init__ {Exception_init_app_films_164.args}")

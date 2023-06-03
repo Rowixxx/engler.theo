@@ -24,12 +24,10 @@ class FormWTFAjouterGenres(FlaskForm):
          #                                                                         "apostrophe, de double trait union")
           #                                                         ])
 
-    prenom_client = StringField("Prénom du client", validators=[DataRequired()])
-    nom_client = StringField("Nom du client", validators=[DataRequired()])
-    date_naissance_client = DateField("Date de naissance", validators=[DataRequired()])
-    sexe_client = StringField("Sexe", validators=[DataRequired()])
-    nationalite_client = StringField("Nationalité", validators=[DataRequired()])
-    submit = SubmitField("Enregistrer le nouveau client")
+    ville_client = StringField("Ville", validators=[DataRequired()])
+    rue_client = StringField("Rue", validators=[DataRequired()])
+    numero_rue_naissance_client = StringField("N° de rue", validators=[DataRequired()])
+    submit = SubmitField("Ajouter une nouvelle adresse")
 
 
 class FormWTFUpdateGenre(FlaskForm):
@@ -37,12 +35,7 @@ class FormWTFUpdateGenre(FlaskForm):
         Dans le formulaire "genre_update_wtf.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    prenom_client = StringField("Prénom du client", validators=[DataRequired()])
-    nom_client = StringField("Nom du client", validators=[DataRequired()])
-    date_naissance_client = DateField("Date de naissance", validators=[DataRequired()])
-    sexe_client = StringField("Sexe", validators=[DataRequired()])
-    nationalite_client = StringField("Nationalité", validators=[DataRequired()])
-    submit = SubmitField("Modifier les données du client")
+""" completer completer   222 2131 231231 231231313131321 312312 31313 1231231 23 123 123123123 """
 
 
 class FormWTFDeleteGenre(FlaskForm):

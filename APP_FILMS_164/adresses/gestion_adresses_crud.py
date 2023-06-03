@@ -12,9 +12,9 @@ from flask import url_for
 from APP_FILMS_164 import app
 from APP_FILMS_164.database.database_tools import DBconnection
 from APP_FILMS_164.erreurs.exceptions import *
-from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormWTFAjouterGenres
-from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormWTFDeleteGenre
-from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormWTFUpdateGenre
+from APP_FILMS_164.clients.gestion_clients_wtf_forms import FormWTFAjouterGenres
+from APP_FILMS_164.clients.gestion_clients_wtf_forms import FormWTFDeleteGenre
+from APP_FILMS_164.clients.gestion_clients_wtf_forms import FormWTFUpdateGenre
 
 """
     Auteur : OM 2021.03.16
@@ -28,13 +28,13 @@ from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormWTFUpdateGenre
 """
 
 
-@app.route("/genres_afficher/<string:order_by>/<int:id_genre_sel>", methods=['GET', 'POST'])
-def genres_afficher(order_by, id_genre_sel):
+@app.route("/adresses_afficher/<string:order_by>/<int:id_genre_sel>", methods=['GET', 'POST'])
+def adresses_afficher(order_by, id_genre_sel):
     if request.method == "GET":
         try:
             with DBconnection() as mc_afficher:
                 if order_by == "ASC" and id_genre_sel == 0:
-                    strsql_genres_afficher = """Select id_chaussure, model, taille, prix FROM t_chaussure ORDER BY id_chaussure"""
+                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse ORDER BY id_adresse"""
                     mc_afficher.execute(strsql_genres_afficher)
                 elif order_by == "ASC":
                     # C'EST LA QUE VOUS ALLEZ DEVOIR PLACER VOTRE PROPRE LOGIQUE MySql
@@ -43,11 +43,11 @@ def genres_afficher(order_by, id_genre_sel):
                     # donc, je précise les champs à afficher
                     # Constitution d'un dictionnaire pour associer l'id du genre sélectionné avec un nom de variable
                     valeur_id_genre_selected_dictionnaire = {"value_id_genre_selected": id_genre_sel}
-                    strsql_genres_afficher = """Select id_chaussure, model, taille, prix FROM t_chaussure ORDER BY id_chaussure"""
+                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse ORDER BY id_adresse"""
 
                     mc_afficher.execute(strsql_genres_afficher, valeur_id_genre_selected_dictionnaire)
                 else:
-                    strsql_genres_afficher = """Select id_chaussure, model, taille, prix FROM t_chaussure ORDER BY id_chaussure"""
+                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse ORDER BY id_adresse"""
 
                     mc_afficher.execute(strsql_genres_afficher)
 
@@ -57,22 +57,22 @@ def genres_afficher(order_by, id_genre_sel):
 
                 # Différencier les messages si la table est vide.
                 if not data_genres and id_genre_sel == 0:
-                    flash("""La table "t_genre" est vide. !!""", "warning")
+                    flash("""La table "t_adresse" est vide. !!""", "warning")
                 elif not data_genres and id_genre_sel > 0:
                     # Si l'utilisateur change l'id_genre dans l'URL et que le genre n'existe pas,
-                    flash(f"Le genre demandé n'existe pas !!", "warning")
+                    flash(f"L'adresse n'existe pas !!", "warning")
                 else:
                     # Dans tous les autres cas, c'est que la table "t_genre" est vide.
                     # OM 2020.04.09 La ligne ci-dessous permet de donner un sentiment rassurant aux utilisateurs.
-                    flash(f"Données shoes affichés !!", "success")
+                    flash(f"Données adresse affichés !!", "success")
 
         except Exception as Exception_genres_afficher:
             raise ExceptionGenresAfficher(f"fichier : {Path(__file__).name}  ;  "
-                                          f"{genres_afficher.__name__} ; "
+                                          f"{adresses_afficher.__name__} ; "
                                           f"{Exception_genres_afficher}")
 
     # Envoie la page "HTML" au serveur.
-    return render_template("genres/genres_afficher.html", data=data_genres)
+    return render_template("adresses/adresses_afficher.html", data=data_genres)
 
 
 """
@@ -95,23 +95,26 @@ def genres_afficher(order_by, id_genre_sel):
 """
 
 
-@app.route("/genres_ajouter", methods=['GET', 'POST'])
-def genres_ajouter_wtf():
+@app.route("/adresses_ajouter", methods=['GET', 'POST'])
+def adresses_ajouter_wtf():
     form = FormWTFAjouterGenres()
     if request.method == "POST":
         try:
             if form.validate_on_submit():
-                name_genre_wtf = form.modele_chaussure.data
-                prix_chaussure = form.prix_chaussure.data
-                taille_chaussure = form.taille_chaussures.data
-                #name_genre = name_genre_wtf.lower()
-                valeurs_insertion_dictionnaire = {"value_intitule_genre": name_genre_wtf,
-                                                  "value_prix_chaussure": prix_chaussure,
-                                                  "value_taille_chaussure": taille_chaussure,
+                ville_client = form.ville_client.data
+                rue_client = form.rue_client.data
+                numero_rue_client = form.numero_rue_client.data
+
+
+                valeurs_insertion_dictionnaire = {"value_ville_client": ville_client,
+                                                  "value_rue_client": rue_client,
+                                                  "value_numero_rue_client": numero_rue_client,
                                                   }
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_genre = """INSERT INTO t_chaussure (id_chaussure,model, prix, taille) VALUES (NULL,%(value_intitule_genre)s, %(value_prix_chaussure)s, %(value_taille_chaussure)s) """
+                strsql_insert_genre = """INSERT INTO t_adresse (ville, rue, numero_rue) 
+                VALUES (%(value_ville_client)s, %(value_rue_client)s, %(value_numero_rue_client)s """
+
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
 
@@ -119,14 +122,14 @@ def genres_ajouter_wtf():
                 print(f"Données insérées !!")
 
                 # Pour afficher et constater l'insertion de la valeur, on affiche en ordre inverse. (DESC)
-                return redirect(url_for('genres_afficher', order_by='DESC', id_genre_sel=0))
+                return redirect(url_for('adresses_afficher', order_by='DESC', id_genre_sel=0))
 
         except Exception as Exception_genres_ajouter_wtf:
             raise ExceptionGenresAjouterWtf(f"fichier : {Path(__file__).name}  ;  "
-                                            f"{genres_ajouter_wtf.__name__} ; "
+                                            f"{adresses_ajouter_wtf.__name__} ; "
                                             f"{Exception_genres_ajouter_wtf}")
 
-    return render_template("genres/genres_ajouter_wtf.html", form=form)
+    return render_template("adresses/adresses_ajouter_wtf.html", form=form)
 
 
 """
@@ -149,8 +152,8 @@ def genres_ajouter_wtf():
 """
 
 
-@app.route("/genre_update", methods=['GET', 'POST'])
-def genre_update_wtf():
+@app.route("/adresses_update", methods=['GET', 'POST'])
+def adresses_update_wtf():
     # L'utilisateur vient de cliquer sur le bouton "EDIT". Récupère la valeur de "id_genre"
     id_genre_update = request.values['id_genre_btn_edit_html']
 
@@ -159,23 +162,23 @@ def genre_update_wtf():
     try:
         print(" on submit ", form_update.validate_on_submit())
         if form_update.validate_on_submit():
-            # Récupèrer la valeur du champ depuis "genre_update_wtf.html" après avoir cliqué sur "SUBMIT".
-            # Puis la convertir en lettres minuscules.
-            modele_chaussure_update = form_update.modele_chaussure.data
-            prix_chaussure_update = form_update.prix_chaussure.data
-            taille_chaussure_update = form_update.taille_chaussures.data
-            #name_genre_update = name_genre_update.lower()
+            prenom_client = form_update.prenom_client.data
+            nom_client = form_update.nom_client.data
+            date_naissance_client = form_update.date_naissance_client.data
+            sexe_client = form_update.sexe_client.data
+            nationalite_client = form_update.nationalite_client.data
 
-
-            valeur_update_dictionnaire = {"value_id_genre": id_genre_update,
-                                          "value_modele_chassure": modele_chaussure_update,
-                                          "value_prix_chassure": prix_chaussure_update,
-                                          "value_taille_chassure": taille_chaussure_update
+            valeur_update_dictionnaire = {"value_prenom_client": prenom_client,
+                                          "value_nom_client": nom_client,
+                                          "value_date_naissance_client": date_naissance_client,
+                                          "value_sexe_client": sexe_client,
+                                          "value_nationalite_client": nationalite_client,
+                                          "value_id_genre": id_genre_update,
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
-            str_sql_update_intitulegenre = """UPDATE t_chaussure SET model = %(value_modele_chassure)s,
-            prix = %(value_prix_chassure)s, taille = %(value_taille_chassure)s WHERE id_chaussure = %(value_id_genre)s """
+            str_sql_update_intitulegenre = """UPDATE t_personne SET prenom = %(value_prenom_client)s,
+            nom = %(value_nom_client)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -184,11 +187,11 @@ def genre_update_wtf():
 
             # afficher et constater que la donnée est mise à jour.
             # Affiche seulement la valeur modifiée, "ASC" et l'"id_genre_update"
-            return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=id_genre_update))
+            return redirect(url_for('clients_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-            str_sql_id_genre = "SELECT id_chaussure, model, taille, prix FROM t_chaussure " \
-                               "WHERE id_chaussure = %(value_id_genre)s"
+            str_sql_id_genre = "SELECT id_perso, prenom, nom, date_naissance, sexe, nationalité FROM t_personne " \
+                               "WHERE id_perso = %(value_id_genre)s"
             valeur_select_dictionnaire = {"value_id_genre": id_genre_update}
             with DBconnection() as mybd_conn:
                 mybd_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
@@ -198,16 +201,19 @@ def genre_update_wtf():
              #     data_nom_genre["intitule_genre"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
-            form_update.modele_chaussure.data = data_nom_genre["model"]
-            form_update.prix_chaussure.data = data_nom_genre["prix"]
-            form_update.taille_chaussures.data = data_nom_genre["taille"]
+            form_update.prenom_client.data = data_nom_genre["prenom"]
+            form_update.nom_client.data = data_nom_genre["nom"]
+            form_update.date_naissance_client.data = data_nom_genre["date_naissance"]
+            form_update.sexe_client.data = data_nom_genre["sexe"]
+            form_update.nationalite_client.data = data_nom_genre["nationalité"]
+
 
     except Exception as Exception_genre_update_wtf:
         raise ExceptionGenreUpdateWtf(f"fichier : {Path(__file__).name}  ;  "
-                                      f"{genre_update_wtf.__name__} ; "
+                                      f"{adresses_update_wtf.__name__} ; "
                                       f"{Exception_genre_update_wtf}")
 
-    return render_template("genres/genre_update_wtf.html", form_update=form_update)
+    return render_template("adresses/adresses_update_wtf.html", form_update=form_update)
 
 
 """
@@ -225,8 +231,8 @@ def genre_update_wtf():
 """
 
 
-@app.route("/genre_delete", methods=['GET', 'POST'])
-def genre_delete_wtf():
+@app.route("/adresses_delete", methods=['GET', 'POST'])
+def adresses_delete_wtf():
     data_films_attribue_genre_delete = None
     data_nom_genre = None
     btn_submit_del = None
@@ -240,15 +246,15 @@ def genre_delete_wtf():
         if request.method == "POST" and form_delete.validate_on_submit():
 
             if form_delete.submit_btn_annuler.data:
-                return redirect(url_for("genres_afficher", order_by="ASC", id_genre_sel=0))
+                return redirect(url_for("clients_afficher", order_by="ASC", id_genre_sel=0))
 
             if form_delete.submit_btn_conf_del.data:
                 # Récupère les données afin d'afficher à nouveau
                 # le formulaire "genres/genre_delete_wtf.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
                 #data_films_attribue_genre_delete = session['data_films_attribue_genre_delete']
                 #print("data_films_attribue_genre_delete ", data_films_attribue_genre_delete)
-                data_nom_genre= session['data_chaussure']
-                form_delete.chaussure_delete_wtf.data = data_nom_genre['model']
+                data_nom_genre = session['data_personne']
+                form_delete.client_delete_wtf.data = data_nom_genre['prenom']
 
                 flash(f"Effacer le genre de façon définitive de la BD !!!", "danger")
                 # L'utilisateur vient de cliquer sur le bouton de confirmation pour effacer...
@@ -259,7 +265,7 @@ def genre_delete_wtf():
                 valeur_delete_dictionnaire = {"value_id_genre": id_genre_delete}
                 print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 
-                str_sql_delete_films_genre = """DELETE FROM t_chaussure WHERE id_chaussure = %(value_id_genre)s"""
+                str_sql_delete_films_genre = """DELETE FROM t_personne WHERE id_perso = %(value_id_genre)s"""
                 #str_sql_delete_idgenre = """DELETE FROM t_genre WHERE id_genre = %(value_id_genre)s"""
                 # Manière brutale d'effacer d'abord la "fk_genre", même si elle n'existe pas dans la "t_genre_film"
                 # Ensuite on peut effacer le genre vu qu'il n'est plus "lié" (INNODB) dans la "t_genre_film"
@@ -271,7 +277,7 @@ def genre_delete_wtf():
                 print(f"Chaussure définitivement effacée !!")
 
                 # afficher les données
-                return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=0))
+                return redirect(url_for('clients_afficher', order_by="ASC", id_genre_sel=0))
 
         if request.method == "GET":
             valeur_select_dictionnaire = {"value_id_genre": id_genre_delete}
@@ -293,28 +299,28 @@ def genre_delete_wtf():
                 #session['data_films_attribue_genre_delete'] = data_films_attribue_genre_delete
 
                 # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-                str_sql_id_genre = "SELECT id_chaussure, model FROM t_chaussure WHERE id_chaussure = %(value_id_genre)s"
+                str_sql_id_genre = "SELECT id_perso, prenom FROM t_personne WHERE id_perso = %(value_id_genre)s"
 
                 mydb_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
                 # Une seule valeur est suffisante "fetchone()",
                 # vu qu'il n'y a qu'un seul champ "nom genre" pour l'action DELETE
                 data_nom_genre = mydb_conn.fetchone()
-                session['data_chaussure'] = data_nom_genre
+                session['data_personne'] = data_nom_genre
                 #print("data_nom_genre ", data_nom_genre, " type ", type(data_nom_genre), " genre ",
                  #     data_nom_genre["intitule_genre"]) c'est à cause de ce print mince'
 
             # Afficher la valeur sélectionnée dans le champ du formulaire "genre_delete_wtf.html"
-            form_delete.chaussure_delete_wtf.data = data_nom_genre["model"]
+            form_delete.client_delete_wtf.data = data_nom_genre["prenom"]
 
             # Le bouton pour l'action "DELETE" dans le form. "genre_delete_wtf.html" est caché.
             btn_submit_del = False
 
     except Exception as Exception_genre_delete_wtf:
         raise ExceptionGenreDeleteWtf(f"fichier : {Path(__file__).name}  ;  "
-                                      f"{genre_delete_wtf.__name__} ; "
+                                      f"{adresses_delete_wtf.__name__} ; "
                                       f"{Exception_genre_delete_wtf}")
 
-    return render_template("genres/genre_delete_wtf.html",
+    return render_template("adresses/adresses_delete_wtf.html",
                            form_delete=form_delete,
                            btn_submit_del=btn_submit_del,
                            data_nom_genre=data_nom_genre)
