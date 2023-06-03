@@ -8,7 +8,7 @@
 				Modifier les données d'un client
 			</p>
 			<form action="" method="POST" novalidate>
-				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				<!-- Protection contre les attaques Cross-Site Request F orgery (CSRF) -->
 				{{ form_update.hidden_tag() }}
 				<div class="form-group">
 					<p>
@@ -21,28 +21,28 @@
 					<p>
 						{{ form_update.nom_client.label }}<br>
 						{{ form_update.nom_client(size=32) }}<br>
-						{% for error in form.nom_client.errors %}
+						{% for error in form_update.nom_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
 						{{ form_update.date_naissance_client.label }}<br>
 						{{ form_update.date_naissance_client(size=32) }}<br>
-						{% for error in form.date_naissance_client.errors %}
+						{% for error in form_update.date_naissance_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
 						{{ form_update.sexe_client.label }}<br>
 						{{ form_update.sexe_client(size=32) }}<br>
-						{% for error in form.sexe_client.errors %}
+						{% for error in form_update.sexe_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
 						{{ form_update.nationalite_client.label }}<br>
 						{{ form_update.nationalite_client(size=32) }}<br>
-						{% for error in form.nationalite_client.errors %}
+						{% for error in form_update.nationalite_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

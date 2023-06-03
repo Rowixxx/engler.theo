@@ -177,11 +177,12 @@ def clients_update_wtf():
                                           "value_date_naissance_client": date_naissance_client,
                                           "value_sexe_client": sexe_client,
                                           "value_nationalite_client": nationalite_client,
+                                          "value_id_genre": id_genre_update,
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_intitulegenre = """UPDATE t_personne SET prenom = %(value_prenom_client)s,
-            nom = %(value_nom_clients)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
+            nom = %(value_nom_client)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -190,7 +191,7 @@ def clients_update_wtf():
 
             # afficher et constater que la donnée est mise à jour.
             # Affiche seulement la valeur modifiée, "ASC" et l'"id_genre_update"
-            return redirect(url_for('client_afficher', order_by="ASC", id_genre_sel=id_genre_update))
+            return redirect(url_for('clients_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
             str_sql_id_genre = "SELECT id_perso, prenom, nom, date_naissance, sexe, nationalité FROM t_personne " \
