@@ -269,7 +269,7 @@ def clients_delete_wtf():
                 valeur_delete_dictionnaire = {"value_id_genre": id_genre_delete}
                 print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 
-                str_sql_delete_films_genre = """DELETE FROM t_personne WHERE id_personne = %(value_id_genre)s"""
+                str_sql_delete_films_genre = """DELETE FROM t_personne WHERE id_perso = %(value_id_genre)s"""
                 #str_sql_delete_idgenre = """DELETE FROM t_genre WHERE id_genre = %(value_id_genre)s"""
                 # Manière brutale d'effacer d'abord la "fk_genre", même si elle n'existe pas dans la "t_genre_film"
                 # Ensuite on peut effacer le genre vu qu'il n'est plus "lié" (INNODB) dans la "t_genre_film"
@@ -281,7 +281,7 @@ def clients_delete_wtf():
                 print(f"Chaussure définitivement effacée !!")
 
                 # afficher les données
-                return redirect(url_for('client_afficher', order_by="ASC", id_genre_sel=0))
+                return redirect(url_for('clients_afficher', order_by="ASC", id_genre_sel=0))
 
         if request.method == "GET":
             valeur_select_dictionnaire = {"value_id_genre": id_genre_delete}
@@ -303,7 +303,7 @@ def clients_delete_wtf():
                 #session['data_films_attribue_genre_delete'] = data_films_attribue_genre_delete
 
                 # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-                str_sql_id_genre = "SELECT id_perso, model FROM t_personne WHERE id_perso = %(value_id_genre)s"
+                str_sql_id_genre = "SELECT id_perso, prenom FROM t_personne WHERE id_perso = %(value_id_genre)s"
 
                 mydb_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
                 # Une seule valeur est suffisante "fetchone()",
