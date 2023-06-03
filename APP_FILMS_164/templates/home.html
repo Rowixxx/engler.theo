@@ -6,6 +6,9 @@
     text-align: center;
     font-size: 16px;
 }
+.audio-container {
+    margin-top: 20px;  /* Ajoutez une marge en haut pour donner de l'espace au-dessus de l'élément audio */
+}
 </style>
 <div class="container-fluid">
 	<div class="row">
@@ -44,10 +47,16 @@
 			<p>
 				Pour plus d'information, internet ou <a href="https://bittensor.com/">https://bittensor.com/</a>
 			</p>
-
 			<div class="d-flex justify-content-center centered-image">
     				<img src="{{ url_for('static', filename='gif.gif') }}" alt="oui" class="img-fluid custom-image-size">
             </div>
+			<div class="audio-container">
+			<audio controls>
+  			<source src="{{ url_for('static', filename='idk.ogg') }}" type="audio/ogg">
+  			<source src="{{ url_for('static', filename='idk.mp3') }}" type="audio/mpeg">
+				Votre navigateur ne supporte pas l'élément audio.
+			</audio>
+			</div>
 		</div>
 	</div>
 </div>

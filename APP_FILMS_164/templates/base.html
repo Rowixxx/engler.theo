@@ -26,12 +26,12 @@
 	<!-- https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/ -->
 	<link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
 
-	<!-- Ajout de CSS pour changer la couleur de fond à noir -->
-	<style>
+
+		<style>
 	    body {
 	        background-color: black !important;
 	    }
-	</style>
+			</style>
 
 	{% block head %}
 	{% endblock %}
@@ -102,7 +102,10 @@
 
 <!-- End Navigation -->
 
-{% block body %}{% endblock %}
+
+{% block body %}
+
+{% endblock %}
 
 {% block javascript %}
 
@@ -110,14 +113,14 @@
 {% include 'footer.html' %}
 
 <script>
-  function updateDate() {
-    const currentDateElement = document.getElementById("currentDate");
-    const now = new Date();
-    const formattedDate = now.getFullYear() + "." + (now.getMonth() + 1).toString().padStart(2, "0") + "." + now.getDate().toString().padStart(2, "0");
-    currentDateElement.innerHTML = formattedDate;
-  }
+        function updateDate() {
+            const currentDateElement = document.getElementById("currentDate");
+            const now = new Date();
+            const formattedDate = now.getFullYear() + "." + (now.getMonth() + 1).toString().padStart(2, "0") + "." + now.getDate().toString().padStart(2, "0");
+            currentDateElement.innerHTML = formattedDate;
+        }
 
-  updateDate();
+        updateDate();
 </script>
 </body>
 </html>
