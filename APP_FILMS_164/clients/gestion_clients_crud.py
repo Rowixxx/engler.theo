@@ -190,11 +190,11 @@ def clients_update_wtf():
 
             # afficher et constater que la donnée est mise à jour.
             # Affiche seulement la valeur modifiée, "ASC" et l'"id_genre_update"
-            return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=id_genre_update))
+            return redirect(url_for('client_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-            str_sql_id_genre = "SELECT id_chaussure, model, taille, prix FROM t_chaussure " \
-                               "WHERE id_chaussure = %(value_id_genre)s"
+            str_sql_id_genre = "SELECT id_perso, prenom, nom, date_naissance, sexe, nationalité FROM t_personne " \
+                               "WHERE id_perso = %(value_id_genre)s"
             valeur_select_dictionnaire = {"value_id_genre": id_genre_update}
             with DBconnection() as mybd_conn:
                 mybd_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
@@ -256,8 +256,8 @@ def clients_delete_wtf():
                 # le formulaire "genres/genre_delete_wtf.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
                 #data_films_attribue_genre_delete = session['data_films_attribue_genre_delete']
                 #print("data_films_attribue_genre_delete ", data_films_attribue_genre_delete)
-                data_nom_genre = session['data_chaussure']
-                form_delete.chaussure_delete_wtf.data = data_nom_genre['model']
+                data_nom_genre = session['data_personne']
+                form_delete.client_delete_wtf.data = data_nom_genre['prenom']
 
                 flash(f"Effacer le genre de façon définitive de la BD !!!", "danger")
                 # L'utilisateur vient de cliquer sur le bouton de confirmation pour effacer...
@@ -268,7 +268,7 @@ def clients_delete_wtf():
                 valeur_delete_dictionnaire = {"value_id_genre": id_genre_delete}
                 print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 
-                str_sql_delete_films_genre = """DELETE FROM t_chaussure WHERE id_chaussure = %(value_id_genre)s"""
+                str_sql_delete_films_genre = """DELETE FROM t_personne WHERE id_personne = %(value_id_genre)s"""
                 #str_sql_delete_idgenre = """DELETE FROM t_genre WHERE id_genre = %(value_id_genre)s"""
                 # Manière brutale d'effacer d'abord la "fk_genre", même si elle n'existe pas dans la "t_genre_film"
                 # Ensuite on peut effacer le genre vu qu'il n'est plus "lié" (INNODB) dans la "t_genre_film"
@@ -280,7 +280,7 @@ def clients_delete_wtf():
                 print(f"Chaussure définitivement effacée !!")
 
                 # afficher les données
-                return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=0))
+                return redirect(url_for('client_afficher', order_by="ASC", id_genre_sel=0))
 
         if request.method == "GET":
             valeur_select_dictionnaire = {"value_id_genre": id_genre_delete}
@@ -302,18 +302,18 @@ def clients_delete_wtf():
                 #session['data_films_attribue_genre_delete'] = data_films_attribue_genre_delete
 
                 # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-                str_sql_id_genre = "SELECT id_chaussure, model FROM t_chaussure WHERE id_chaussure = %(value_id_genre)s"
+                str_sql_id_genre = "SELECT id_perso, model FROM t_personne WHERE id_perso = %(value_id_genre)s"
 
                 mydb_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
                 # Une seule valeur est suffisante "fetchone()",
                 # vu qu'il n'y a qu'un seul champ "nom genre" pour l'action DELETE
                 data_nom_genre = mydb_conn.fetchone()
-                session['data_chaussure'] = data_nom_genre
+                session['data_personne'] = data_nom_genre
                 #print("data_nom_genre ", data_nom_genre, " type ", type(data_nom_genre), " genre ",
                  #     data_nom_genre["intitule_genre"]) c'est à cause de ce print mince'
 
             # Afficher la valeur sélectionnée dans le champ du formulaire "genre_delete_wtf.html"
-            form_delete.chaussure_delete_wtf.data = data_nom_genre["model"]
+            form_delete.client_delete_wtf.data = data_nom_genre["prenom"]
 
             # Le bouton pour l'action "DELETE" dans le form. "genre_delete_wtf.html" est caché.
             btn_submit_del = False
