@@ -255,7 +255,7 @@ def adresses_delete_wtf():
                 data_nom_genre = session['data_adresse']
                 form_delete.adresse_delete_wtf.data = data_nom_genre['ville']
 
-                flash(f"Effacer le genre de façon définitive de la BD !!!", "danger")
+                flash(f"Effacer l'adresse de façon définitive de la BD !!!", "danger")
                 # L'utilisateur vient de cliquer sur le bouton de confirmation pour effacer...
                 # On affiche le bouton "Effacer genre" qui va irrémédiablement EFFACER le genre
                 btn_submit_del = True
@@ -276,7 +276,7 @@ def adresses_delete_wtf():
                 print(f"Adresse définitivement effacée !!")
 
                 # afficher les données
-                return redirect(url_for('adresse_afficher', order_by="ASC", id_genre_sel=0))
+                return redirect(url_for('adresses_afficher', order_by="ASC", id_genre_sel=0))
 
         if request.method == "GET":
             valeur_select_dictionnaire = {"value_id_genre": id_genre_delete}
@@ -304,7 +304,7 @@ def adresses_delete_wtf():
                 # Une seule valeur est suffisante "fetchone()",
                 # vu qu'il n'y a qu'un seul champ "nom genre" pour l'action DELETE
                 data_nom_genre = mydb_conn.fetchone()
-                session['data_personne'] = data_nom_genre
+                session['data_adresse'] = data_nom_genre
                 #print("data_nom_genre ", data_nom_genre, " type ", type(data_nom_genre), " genre ",
                  #     data_nom_genre["intitule_genre"]) c'est à cause de ce print mince'
 
