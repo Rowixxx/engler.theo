@@ -1,0 +1,358 @@
+<mxfile host="Electron" modified="2023-04-24T13:57:14.628Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="YOeQ9UkcdJE7GJHh9nPP" version="21.1.2" type="device">
+  <diagram id="9Yyk9Tgi1UEduUFLjc2k" name="Page-1">
+    <mxGraphModel dx="2858" dy="1580" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-1" value="t_personne" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="50" y="320" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-2" value="id_perso INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry y="20" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-10" value="sexe VARCHAR (10)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="13" y="140" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-8" value="date_naissance DATE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="11" y="110" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-9" value="nom VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="12" y="80" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-7" value="prenom VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="10" y="50" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-17" value="nationalité VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="14" y="170" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-83" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry y="29" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-110" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="6" y="60" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-112" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="6" y="120" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-113" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="6" y="150" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-114" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="6" y="180" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-126" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-1" vertex="1">
+          <mxGeometry x="6" y="90" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-21" value="t_adresse" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="323" y="540" width="182" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-22" value="id_adresse INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry y="20" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-23" value="fk_pays VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="10" y="140" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-24" value="numero_rue VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="16" y="110" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-25" value="rue VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="11" y="80" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-26" value="ville VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="11" y="50" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-79" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry y="29" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-88" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry y="146.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-115" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="5" y="60" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-116" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="7" y="90" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-117" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-21" vertex="1">
+          <mxGeometry x="7" y="120" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-28" value="t_travail" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-84" y="-45" width="185" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-29" value="id_travail INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry y="20" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-30" value="salaire VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry x="16.5" y="106" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-32" value="entreprise VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry x="14.5" y="76" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-33" value="profession VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry x="14.5" y="46" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-84" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry y="29" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-118" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry x="5.5" y="56" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-119" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry x="6.5" y="86" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-120" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-28" vertex="1">
+          <mxGeometry x="6.5" y="116" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-35" value="t_pays" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="285" y="730" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-36" value="id_pays (INT 11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-35" vertex="1">
+          <mxGeometry y="25" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-40" value="numero_telephone VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-35" vertex="1">
+          <mxGeometry x="12" y="55" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-82" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-35" vertex="1">
+          <mxGeometry y="34" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-100" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-35" vertex="1">
+          <mxGeometry x="7" y="65" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-42" value="t_telephone" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="270" y="20" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-43" value="id_telephone&amp;nbsp; INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-42" vertex="1">
+          <mxGeometry y="20" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-47" value="numero_telephone VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-42" vertex="1">
+          <mxGeometry x="9" y="50" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-81" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-42" vertex="1">
+          <mxGeometry y="29" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-99" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-42" vertex="1">
+          <mxGeometry x="5" y="60" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-49" value="t_mail" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="720" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-50" value="id_mail INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-49" vertex="1">
+          <mxGeometry y="20" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-54" value="adresse_mail VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-49" vertex="1">
+          <mxGeometry x="10" y="50" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-80" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-49" vertex="1">
+          <mxGeometry y="29" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-108" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" parent="k4K9dI-eHadiNOxdO-ry-49" vertex="1">
+          <mxGeometry x="6" y="60" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-56" value="t_pers_avoir_telephone" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="270" y="140" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-57" value="id_pers_avoir_telephone INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-56" vertex="1">
+          <mxGeometry x="5" y="25" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-58" value="fk_pers_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-56" vertex="1">
+          <mxGeometry x="2" y="55" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-63" value="fk_telephone_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-56" vertex="1">
+          <mxGeometry x="10" y="85" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-85" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-56" vertex="1">
+          <mxGeometry y="34" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-124" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-56" vertex="1">
+          <mxGeometry x="2" y="61.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-125" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-56" vertex="1">
+          <mxGeometry x="2" y="91.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-64" value="t_pers_avoir_adresse" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="300" y="370" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-65" value="id_pers_avoir_adresse INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-64" vertex="1">
+          <mxGeometry y="25" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-66" value="fk_pers_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-64" vertex="1">
+          <mxGeometry x="6" y="55" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-67" value="fk_adresse_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-64" vertex="1">
+          <mxGeometry x="10" y="85" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-86" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-64" vertex="1">
+          <mxGeometry y="34" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-95" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-64" vertex="1">
+          <mxGeometry x="2" y="93.5" width="13" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-96" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-64" vertex="1">
+          <mxGeometry x="2" y="63.5" width="13" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-68" value="t_pers_avoir_mail" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="565" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-69" value="id_pers_avoir_mail INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-68" vertex="1">
+          <mxGeometry y="25" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-70" value="fk_pers_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-68" vertex="1">
+          <mxGeometry x="7" y="55" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-71" value="fk_mail_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-68" vertex="1">
+          <mxGeometry x="12" y="85" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-87" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-68" vertex="1">
+          <mxGeometry y="34" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-90" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-68" vertex="1">
+          <mxGeometry y="61.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-91" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-68" vertex="1">
+          <mxGeometry y="91.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-72" value="t_pers_avoir_travail" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="-75" y="143" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-73" value="id_pers_avoir_travail INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-72" vertex="1">
+          <mxGeometry y="25" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-74" value="fk_pers_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-72" vertex="1">
+          <mxGeometry x="7" y="55" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-75" value="fk_telephone_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="k4K9dI-eHadiNOxdO-ry-72" vertex="1">
+          <mxGeometry x="12" y="85" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-78" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" parent="k4K9dI-eHadiNOxdO-ry-72" vertex="1">
+          <mxGeometry y="34" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-92" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-72" vertex="1">
+          <mxGeometry y="61.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="k4K9dI-eHadiNOxdO-ry-93" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" parent="k4K9dI-eHadiNOxdO-ry-72" vertex="1">
+          <mxGeometry y="91.5" width="17" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-1" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-72" target="k4K9dI-eHadiNOxdO-ry-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="650" as="sourcePoint" />
+            <mxPoint x="230" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-3" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.995;exitY=0.067;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-68" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="660" as="sourcePoint" />
+            <mxPoint x="50" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-4" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-96" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="450" as="sourcePoint" />
+            <mxPoint x="250" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-5" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.547;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-35" target="k4K9dI-eHadiNOxdO-ry-23" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="650" as="sourcePoint" />
+            <mxPoint x="230" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-6" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.736;exitY=1.1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-67" target="k4K9dI-eHadiNOxdO-ry-21" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="650" as="sourcePoint" />
+            <mxPoint x="610" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-7" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-49" edge="1" target="k4K9dI-eHadiNOxdO-ry-68">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="820" as="sourcePoint" />
+            <mxPoint x="-100" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-16" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" target="k4K9dI-eHadiNOxdO-ry-56" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="320" as="sourcePoint" />
+            <mxPoint x="300" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-17" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.438;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-47" target="k4K9dI-eHadiNOxdO-ry-56" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="380" as="sourcePoint" />
+            <mxPoint x="230" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sEnBnQNs2sItiJTFS5ng-18" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.467;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="k4K9dI-eHadiNOxdO-ry-72" target="k4K9dI-eHadiNOxdO-ry-28" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="380" as="sourcePoint" />
+            <mxPoint x="230" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-1" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="k4K9dI-eHadiNOxdO-ry-1" target="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="115" y="273" as="sourcePoint" />
+            <mxPoint x="-164" y="384" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-2" value="t_pers_acheter_chaussure" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-263" y="355" width="225" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-3" value="id_pers_acheter_chaussure INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry x="10" y="27" width="212" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-4" value="fk_pers_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry x="6" y="55" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-5" value="fk_chaussure_id INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry x="10" y="87" width="152" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-6" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry x="2.5" y="34" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-7" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry x="2" y="93.5" width="13" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-8" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-verte.png;rotation=90;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry x="2" y="63.5" width="13" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-9" value="t_chaussure" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-558" y="330" width="182" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-10" value="id_chaussure&amp;nbsp;INT (11)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="15" y="26" width="136" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-12" value="date_achat DATE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="17" y="112" width="112" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-13" value="prix VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="15" y="82" width="123" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-14" value="model VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="15" y="52" width="136" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-15" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://icones.pro/wp-content/uploads/2022/01/symbole-de-cle-jaune.png;direction=south;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="3" y="35" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-17" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="5" y="60" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-18" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="7" y="90" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-19" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="7" y="120" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-21" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;rotation=-45;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="7" y="149" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-22" value="taille VARCHAR (50)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="tqIq-mn49HWrMznE6Tpk-9">
+          <mxGeometry x="17" y="141" width="128" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tqIq-mn49HWrMznE6Tpk-20" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tqIq-mn49HWrMznE6Tpk-9" target="tqIq-mn49HWrMznE6Tpk-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="430" as="sourcePoint" />
+            <mxPoint x="-43" y="425" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
