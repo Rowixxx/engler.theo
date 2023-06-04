@@ -34,7 +34,8 @@ def adresses_afficher(order_by, id_genre_sel):
         try:
             with DBconnection() as mc_afficher:
                 if order_by == "ASC" and id_genre_sel == 0:
-                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse ORDER BY id_adresse"""
+                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse 
+                    ORDER BY id_adresse"""
                     mc_afficher.execute(strsql_genres_afficher)
                 elif order_by == "ASC":
                     # C'EST LA QUE VOUS ALLEZ DEVOIR PLACER VOTRE PROPRE LOGIQUE MySql
@@ -43,11 +44,13 @@ def adresses_afficher(order_by, id_genre_sel):
                     # donc, je précise les champs à afficher
                     # Constitution d'un dictionnaire pour associer l'id du genre sélectionné avec un nom de variable
                     valeur_id_genre_selected_dictionnaire = {"value_id_genre_selected": id_genre_sel}
-                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse ORDER BY id_adresse"""
+                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse 
+                    ORDER BY id_adresse"""
 
                     mc_afficher.execute(strsql_genres_afficher, valeur_id_genre_selected_dictionnaire)
                 else:
-                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse ORDER BY id_adresse"""
+                    strsql_genres_afficher = """Select id_adresse, ville, rue, numero_rue FROM t_adresse 
+                    ORDER BY id_adresse"""
 
                     mc_afficher.execute(strsql_genres_afficher)
 
@@ -105,7 +108,6 @@ def adresses_ajouter_wtf():
                 rue_client = form.rue_client.data
                 numero_rue_client = form.numero_rue_client.data
 
-
                 valeurs_insertion_dictionnaire = {"value_ville_client": ville_client,
                                                   "value_rue_client": rue_client,
                                                   "value_numero_rue_client": numero_rue_client,
@@ -113,7 +115,7 @@ def adresses_ajouter_wtf():
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
                 strsql_insert_genre = """INSERT INTO t_adresse (ville, rue, numero_rue) 
-                VALUES (%(value_ville_client)s, %(value_rue_client)s, %(value_numero_rue_client)s """
+                VALUES (%(value_ville_client)s, %(value_rue_client)s, %(value_numero_rue_client)s)"""
 
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
@@ -162,23 +164,20 @@ def adresses_update_wtf():
     try:
         print(" on submit ", form_update.validate_on_submit())
         if form_update.validate_on_submit():
-            prenom_client = form_update.prenom_client.data
-            nom_client = form_update.nom_client.data
-            date_naissance_client = form_update.date_naissance_client.data
-            sexe_client = form_update.sexe_client.data
-            nationalite_client = form_update.nationalite_client.data
+            ville_client = form_update.ville_client.data
+            rue_client = form_update.rue_client.data
+            numero_rue_client = form_update.numero_rue_client.data
 
-            valeur_update_dictionnaire = {"value_prenom_client": prenom_client,
-                                          "value_nom_client": nom_client,
-                                          "value_date_naissance_client": date_naissance_client,
-                                          "value_sexe_client": sexe_client,
-                                          "value_nationalite_client": nationalite_client,
+            valeur_update_dictionnaire = {"value_ville_client": ville_client,
+                                          "value_rue_client": rue_client,
+                                          "value_numero_rue_client": numero_rue_client,
                                           "value_id_genre": id_genre_update,
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
-            str_sql_update_intitulegenre = """UPDATE t_personne SET prenom = %(value_prenom_client)s,
-            nom = %(value_nom_client)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
+            str_sql_update_intitulegenre = """UPDATE t_adresse SET ville = %(value_ville_client)s,
+            rue = %(value_rue_client)s, numero_rue_client = %(value_numero_rue_client)s 
+            WHERE id_adresse = %(value_id_adresse)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -187,11 +186,11 @@ def adresses_update_wtf():
 
             # afficher et constater que la donnée est mise à jour.
             # Affiche seulement la valeur modifiée, "ASC" et l'"id_genre_update"
-            return redirect(url_for('clients_afficher', order_by="ASC", id_genre_sel=id_genre_update))
+            return redirect(url_for('adresses_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-            str_sql_id_genre = "SELECT id_perso, prenom, nom, date_naissance, sexe, nationalité FROM t_personne " \
-                               "WHERE id_perso = %(value_id_genre)s"
+            str_sql_id_genre = "SELECT id_adresse, ville, rue, numero_rue FROM t_adresse" \
+                               "WHERE id_adresse = %(value_id_genre)s"
             valeur_select_dictionnaire = {"value_id_genre": id_genre_update}
             with DBconnection() as mybd_conn:
                 mybd_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
@@ -201,11 +200,10 @@ def adresses_update_wtf():
              #     data_nom_genre["intitule_genre"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
-            form_update.prenom_client.data = data_nom_genre["prenom"]
-            form_update.nom_client.data = data_nom_genre["nom"]
-            form_update.date_naissance_client.data = data_nom_genre["date_naissance"]
-            form_update.sexe_client.data = data_nom_genre["sexe"]
-            form_update.nationalite_client.data = data_nom_genre["nationalité"]
+            form_update.ville_client.data = data_nom_genre["ville"]
+            form_update.rue_client.data = data_nom_genre["rue"]
+            form_update.numero_rue_client.data = data_nom_genre["numero_rue"]
+
 
 
     except Exception as Exception_genre_update_wtf:

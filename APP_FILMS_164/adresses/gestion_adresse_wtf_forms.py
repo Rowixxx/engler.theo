@@ -26,7 +26,7 @@ class FormWTFAjouterGenres(FlaskForm):
 
     ville_client = StringField("Ville", validators=[DataRequired()])
     rue_client = StringField("Rue", validators=[DataRequired()])
-    numero_rue_naissance_client = StringField("N° de rue", validators=[DataRequired()])
+    numero_rue_client = StringField("N° de rue", validators=[DataRequired()])
     submit = SubmitField("Ajouter une nouvelle adresse")
 
 
