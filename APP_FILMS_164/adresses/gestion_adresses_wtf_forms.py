@@ -35,9 +35,10 @@ class FormWTFUpdateGenre(FlaskForm):
         Dans le formulaire "genre_update_wtf.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-""" completer completer   222 2131 231231 231231313131321 312312 31313 1231231 23 123 123123123 """
-
-
+    ville_client = StringField("Ville", validators=[DataRequired()])
+    rue_client = StringField("Rue", validators=[DataRequired()])
+    numero_rue_client = StringField("N° de rue", validators=[DataRequired()])
+    submit = SubmitField("Modifié les données d'une adresse")
 class FormWTFDeleteGenre(FlaskForm):
     """
         Dans le formulaire "genre_delete_wtf.html"
@@ -47,7 +48,7 @@ class FormWTFDeleteGenre(FlaskForm):
         submit_btn_conf_del : Bouton de confirmation pour effacer un "genre".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_genre".
     """
-    client_delete_wtf = StringField("Effacer ce client")
+    adresse_delete_wtf = StringField("Effacer ce client")
     submit_btn_del = SubmitField("Effacer le client")
     submit_btn_conf_del = SubmitField("Etes-vous sur de vouloir supprimer ce client ?")
     submit_btn_annuler = SubmitField("Annuler")

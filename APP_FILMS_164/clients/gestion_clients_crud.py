@@ -182,7 +182,8 @@ def clients_update_wtf():
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_intitulegenre = """UPDATE t_personne SET prenom = %(value_prenom_client)s,
-            nom = %(value_nom_client)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
+            nom = %(value_nom_client)s, date_naissance = %(value_date_naissance_client)s, sexe = %(value_sexe_client)s, 
+            nationalité = %(value_nationalite_client)s WHERE id_perso = %(value_id_genre)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 

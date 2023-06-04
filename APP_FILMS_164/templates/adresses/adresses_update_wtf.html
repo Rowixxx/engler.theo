@@ -12,37 +12,23 @@
 				{{ form_update.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form_update.prenom_client.label }}<br>
-						{{ form_update.prenom_client(size=32) }}<br>
-						{% for error in form_update.prenom_client.errors %}
+						{{ form_update.ville_client.label }}<br>
+						{{ form_update.ville_client(size=32) }}<br>
+						{% for error in form_update.ville_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
-						{{ form_update.nom_client.label }}<br>
-						{{ form_update.nom_client(size=32) }}<br>
-						{% for error in form_update.nom_client.errors %}
+						{{ form_update.rue_client.label }}<br>
+						{{ form_update.rue_client(size=32) }}<br>
+						{% for error in form_update.rue_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
-						{{ form_update.date_naissance_client.label }}<br>
-						{{ form_update.date_naissance_client(size=32) }}<br>
-						{% for error in form_update.date_naissance_client.errors %}
-							<span style="color: red;">[{{ error }}]</span>
-						{% endfor %}
-					</p>
-					<p>
-						{{ form_update.sexe_client.label }}<br>
-						{{ form_update.sexe_client(size=32) }}<br>
-						{% for error in form_update.sexe_client.errors %}
-							<span style="color: red;">[{{ error }}]</span>
-						{% endfor %}
-					</p>
-					<p>
-						{{ form_update.nationalite_client.label }}<br>
-						{{ form_update.nationalite_client(size=32) }}<br>
-						{% for error in form_update.nationalite_client.errors %}
+						{{ form_update.numero_rue_client.label }}<br>
+						{{ form_update.numero_rue_client(size=32) }}<br>
+						{% for error in form_update.numero_rue_client.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

@@ -12,9 +12,9 @@ from flask import url_for
 from APP_FILMS_164 import app
 from APP_FILMS_164.database.database_tools import DBconnection
 from APP_FILMS_164.erreurs.exceptions import *
-from APP_FILMS_164.clients.gestion_clients_wtf_forms import FormWTFAjouterGenres
-from APP_FILMS_164.clients.gestion_clients_wtf_forms import FormWTFDeleteGenre
-from APP_FILMS_164.clients.gestion_clients_wtf_forms import FormWTFUpdateGenre
+from APP_FILMS_164.adresses.gestion_adresses_wtf_forms import FormWTFAjouterGenres
+from APP_FILMS_164.adresses.gestion_adresses_wtf_forms import FormWTFDeleteGenre
+from APP_FILMS_164.adresses.gestion_adresses_wtf_forms import FormWTFUpdateGenre
 
 """
     Auteur : OM 2021.03.16
@@ -176,8 +176,8 @@ def adresses_update_wtf():
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_intitulegenre = """UPDATE t_adresse SET ville = %(value_ville_client)s,
-            rue = %(value_rue_client)s, numero_rue_client = %(value_numero_rue_client)s 
-            WHERE id_adresse = %(value_id_adresse)s"""
+            rue = %(value_rue_client)s, numero_rue = %(value_numero_rue_client)s 
+            WHERE id_adresse = %(value_id_genre)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -189,8 +189,9 @@ def adresses_update_wtf():
             return redirect(url_for('adresses_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-            str_sql_id_genre = "SELECT id_adresse, ville, rue, numero_rue FROM t_adresse" \
+            str_sql_id_genre = "SELECT id_adresse, ville, rue, numero_rue FROM t_adresse " \
                                "WHERE id_adresse = %(value_id_genre)s"
+
             valeur_select_dictionnaire = {"value_id_genre": id_genre_update}
             with DBconnection() as mybd_conn:
                 mybd_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
@@ -244,15 +245,15 @@ def adresses_delete_wtf():
         if request.method == "POST" and form_delete.validate_on_submit():
 
             if form_delete.submit_btn_annuler.data:
-                return redirect(url_for("clients_afficher", order_by="ASC", id_genre_sel=0))
+                return redirect(url_for("adresses_afficher", order_by="ASC", id_genre_sel=0))
 
             if form_delete.submit_btn_conf_del.data:
                 # Récupère les données afin d'afficher à nouveau
                 # le formulaire "genres/genre_delete_wtf.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
-                #data_films_attribue_genre_delete = session['data_films_attribue_genre_delete']
-                #print("data_films_attribue_genre_delete ", data_films_attribue_genre_delete)
-                data_nom_genre = session['data_personne']
-                form_delete.client_delete_wtf.data = data_nom_genre['prenom']
+                # data_films_attribue_genre_delete = session['data_films_attribue_genre_delete']
+                # print("data_films_attribue_genre_delete ", data_films_attribue_genre_delete)
+                data_nom_genre = session['data_adresse']
+                form_delete.adresse_delete_wtf.data = data_nom_genre['ville']
 
                 flash(f"Effacer le genre de façon définitive de la BD !!!", "danger")
                 # L'utilisateur vient de cliquer sur le bouton de confirmation pour effacer...
@@ -263,7 +264,7 @@ def adresses_delete_wtf():
                 valeur_delete_dictionnaire = {"value_id_genre": id_genre_delete}
                 print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 
-                str_sql_delete_films_genre = """DELETE FROM t_personne WHERE id_perso = %(value_id_genre)s"""
+                str_sql_delete_films_genre = """DELETE FROM t_adresse WHERE id_adresse = %(value_id_genre)s"""
                 #str_sql_delete_idgenre = """DELETE FROM t_genre WHERE id_genre = %(value_id_genre)s"""
                 # Manière brutale d'effacer d'abord la "fk_genre", même si elle n'existe pas dans la "t_genre_film"
                 # Ensuite on peut effacer le genre vu qu'il n'est plus "lié" (INNODB) dans la "t_genre_film"
@@ -271,11 +272,11 @@ def adresses_delete_wtf():
                     mconn_bd.execute(str_sql_delete_films_genre, valeur_delete_dictionnaire)
                     #mconn_bd.execute(str_sql_delete_idgenre, valeur_delete_dictionnaire)
 
-                flash(f"Chaussure définitivement effacée !!", "success")
-                print(f"Chaussure définitivement effacée !!")
+                flash(f"Adresse définitivement effacée !!", "success")
+                print(f"Adresse définitivement effacée !!")
 
                 # afficher les données
-                return redirect(url_for('clients_afficher', order_by="ASC", id_genre_sel=0))
+                return redirect(url_for('adresse_afficher', order_by="ASC", id_genre_sel=0))
 
         if request.method == "GET":
             valeur_select_dictionnaire = {"value_id_genre": id_genre_delete}
@@ -297,7 +298,7 @@ def adresses_delete_wtf():
                 #session['data_films_attribue_genre_delete'] = data_films_attribue_genre_delete
 
                 # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-                str_sql_id_genre = "SELECT id_perso, prenom FROM t_personne WHERE id_perso = %(value_id_genre)s"
+                str_sql_id_genre = "SELECT id_adresse, ville FROM t_adresse WHERE id_adresse = %(value_id_genre)s"
 
                 mydb_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
                 # Une seule valeur est suffisante "fetchone()",
@@ -308,15 +309,15 @@ def adresses_delete_wtf():
                  #     data_nom_genre["intitule_genre"]) c'est à cause de ce print mince'
 
             # Afficher la valeur sélectionnée dans le champ du formulaire "genre_delete_wtf.html"
-            form_delete.client_delete_wtf.data = data_nom_genre["prenom"]
+            form_delete.adresse_delete_wtf.data = data_nom_genre["ville"]
 
             # Le bouton pour l'action "DELETE" dans le form. "genre_delete_wtf.html" est caché.
             btn_submit_del = False
 
-    except Exception as Exception_genre_delete_wtf:
+    except Exception as Exception_adresse_delete_wtf:
         raise ExceptionGenreDeleteWtf(f"fichier : {Path(__file__).name}  ;  "
                                       f"{adresses_delete_wtf.__name__} ; "
-                                      f"{Exception_genre_delete_wtf}")
+                                      f"{Exception_adresse_delete_wtf}")
 
     return render_template("adresses/adresses_delete_wtf.html",
                            form_delete=form_delete,
