@@ -59,6 +59,10 @@
 					</li>
 					<li class="nav-item">
 						<!--		Afficher la liste des genres dans l'ordre (ASC) et tous les genres (0)-->
+						<a class="nav-link" href="{{ url_for('acheter_afficher', order_by='ASC', id_sel=0) }}">Achats</a>
+					</li>
+					<li class="nav-item">
+						<!--		Afficher la liste des genres dans l'ordre (ASC) et tous les genres (0)-->
 						<a class="nav-link" href="{{ url_for('clients_afficher', order_by='ASC', id_genre_sel=0) }}">Clients</a>
 					</li>
 					<li class="nav-item">
