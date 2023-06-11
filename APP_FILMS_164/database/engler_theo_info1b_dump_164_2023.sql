@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `t_chaussure` (
   `prix` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `taille` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id_chaussure`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_chaussure : ~10 rows (environ)
 DELETE FROM `t_chaussure`;
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `t_personne` (
   `sexe` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `nationalité` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id_perso`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_personne : ~10 rows (environ)
 DELETE FROM `t_personne`;
@@ -140,16 +140,27 @@ CREATE TABLE IF NOT EXISTS `t_pers_acheter_chaussure` (
   `id_perso_acheter_chaussure` int NOT NULL AUTO_INCREMENT,
   `fk_pers_id` int DEFAULT NULL,
   `fk_chaussure_id` int DEFAULT NULL,
-  `date_achat` timestamp NULL DEFAULT NULL,
+  `date_achat` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_perso_acheter_chaussure`),
   KEY `fk_pers_id` (`fk_pers_id`),
   KEY `fk_chaussure_id` (`fk_chaussure_id`),
   CONSTRAINT `fk_t_pers_acheter_chaussure_t_chaussure` FOREIGN KEY (`fk_chaussure_id`) REFERENCES `t_chaussure` (`id_chaussure`),
   CONSTRAINT `fk_t_pers_acheter_chaussure_t_personne` FOREIGN KEY (`fk_pers_id`) REFERENCES `t_personne` (`id_perso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_pers_acheter_chaussure : ~0 rows (environ)
+-- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_pers_acheter_chaussure : ~10 rows (environ)
 DELETE FROM `t_pers_acheter_chaussure`;
+INSERT INTO `t_pers_acheter_chaussure` (`id_perso_acheter_chaussure`, `fk_pers_id`, `fk_chaussure_id`, `date_achat`) VALUES
+	(1, 1, 1, '2023-06-10 13:15:22'),
+	(2, 2, 2, '2023-06-10 13:15:34'),
+	(3, 3, 3, '2023-06-10 13:15:48'),
+	(4, 4, 4, '2023-06-10 13:16:00'),
+	(5, 5, 5, '2023-06-10 13:16:17'),
+	(6, 6, 6, '2023-06-10 13:16:36'),
+	(7, 7, 7, '2023-06-10 13:16:44'),
+	(8, 8, 8, '2023-06-10 13:16:51'),
+	(9, 9, 9, '2023-06-10 13:17:01'),
+	(10, 10, 10, '2023-06-10 13:17:10');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pers_avoir_adresse
 CREATE TABLE IF NOT EXISTS `t_pers_avoir_adresse` (
