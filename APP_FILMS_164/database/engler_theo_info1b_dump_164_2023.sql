@@ -16,12 +16,10 @@
 
 
 -- Listage de la structure de la base pour engler_theo_info1b_shoes_164_2023
-DROP DATABASE IF EXISTS `engler_theo_info1b_shoes_164_2023`;
 CREATE DATABASE IF NOT EXISTS `engler_theo_info1b_shoes_164_2023` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `engler_theo_info1b_shoes_164_2023`;
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_adresse
-DROP TABLE IF EXISTS `t_adresse`;
 CREATE TABLE IF NOT EXISTS `t_adresse` (
   `id_adresse` int NOT NULL AUTO_INCREMENT,
   `ville` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
@@ -31,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `t_adresse` (
   PRIMARY KEY (`id_adresse`),
   KEY `fk_pays` (`fk_pays`),
   CONSTRAINT `fk_t_adresse_t_pays` FOREIGN KEY (`fk_pays`) REFERENCES `t_pays` (`id_pays`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_adresse : ~10 rows (environ)
 DELETE FROM `t_adresse`;
@@ -45,34 +43,32 @@ INSERT INTO `t_adresse` (`id_adresse`, `ville`, `rue`, `numero_rue`, `fk_pays`) 
 	(7, 'Morge', 'Route de la clochette', '16g', 7),
 	(8, 'Aigle', 'Avenue de Longmale', '17h', 8),
 	(9, 'Vevey', 'Chemin du lion', '18i', 9),
-	(10, 'Montreux', 'Route de la gloire', '18j', 10);
+	(10, 'Montreux', 'Route de la gloire', '19j', 10);
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_chaussure
-DROP TABLE IF EXISTS `t_chaussure`;
 CREATE TABLE IF NOT EXISTS `t_chaussure` (
   `id_chaussure` int NOT NULL AUTO_INCREMENT,
-  `model` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,
-  `prix` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
-  `taille` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
+  `model` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `prix` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `taille` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id_chaussure`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_chaussure : ~10 rows (environ)
 DELETE FROM `t_chaussure`;
 INSERT INTO `t_chaussure` (`id_chaussure`, `model`, `prix`, `taille`) VALUES
-	(1, 'Adidas Yeezy Boost 350 V2 Zebra', '3', '4'),
-	(2, 'Nike Air Jordan 1 Retro High Off-White Chicago', '100', '38'),
-	(3, 'Gucci Ace Low Top Sneaker', '200', '39'),
-	(4, 'Balenciaga Triple S Sneaker', '300', '40'),
-	(5, 'Christian Louboutin Louis Strass Men\'s Flat', '400', '41'),
-	(6, 'Maison Margiela Future High Top Sneaker', '500', '42'),
-	(7, 'Saint Laurent Court Classic SL/06 Sneaker', '600', '43'),
-	(8, 'Off-White x Nike Air Max 90 Black', '700', '44'),
-	(9, 'Rick Owens Geobasket High Top Sneaker', '800', '45'),
-	(10, 'Prada Cloudbust Thunder Sneaker', '900', '46');
+	(1, 'Les crocs à Widmer', '100', '37'),
+	(2, 'Nike Air Jordan 1 Retro High Off-White Chicago', '200', '38'),
+	(3, 'Gucci Ace Low Top Sneaker', '300', '39'),
+	(4, 'Balenciaga Triple S Sneaker', '400', '40'),
+	(5, 'Christian Louboutin Louis Strass Men\'s Flat', '500', '41'),
+	(6, 'Maison Margiela Future High Top Sneaker', '600', '42'),
+	(7, 'Saint Laurent Court Classic SL/06 Sneaker', '700', '43'),
+	(8, 'Off-White x Nike Air Max 90 Black', '800', '44'),
+	(9, 'Rick Owens Geobasket High Top Sneaker', '900', '45'),
+	(10, 'Prada Cloudbust Thunder Sneaker', '1000', '46');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_mail
-DROP TABLE IF EXISTS `t_mail`;
 CREATE TABLE IF NOT EXISTS `t_mail` (
   `id_mail` int NOT NULL AUTO_INCREMENT,
   `adresse_mail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
@@ -94,7 +90,6 @@ INSERT INTO `t_mail` (`id_mail`, `adresse_mail`) VALUES
 	(10, 'Vheo@gmail.com');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pays
-DROP TABLE IF EXISTS `t_pays`;
 CREATE TABLE IF NOT EXISTS `t_pays` (
   `id_pays` int NOT NULL AUTO_INCREMENT,
   `nom_pays` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
@@ -116,7 +111,6 @@ INSERT INTO `t_pays` (`id_pays`, `nom_pays`) VALUES
 	(10, 'Pologne');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_personne
-DROP TABLE IF EXISTS `t_personne`;
 CREATE TABLE IF NOT EXISTS `t_personne` (
   `id_perso` int NOT NULL AUTO_INCREMENT,
   `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
@@ -125,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `t_personne` (
   `sexe` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `nationalité` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id_perso`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Listage des données de la table engler_theo_info1b_shoes_164_2023.t_personne : ~10 rows (environ)
 DELETE FROM `t_personne`;
@@ -142,7 +136,6 @@ INSERT INTO `t_personne` (`id_perso`, `prenom`, `nom`, `date_naissance`, `sexe`,
 	(10, 'Uhéo', 'Englur', '2011-01-21', 'masculin', 'Polonais');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pers_acheter_chaussure
-DROP TABLE IF EXISTS `t_pers_acheter_chaussure`;
 CREATE TABLE IF NOT EXISTS `t_pers_acheter_chaussure` (
   `id_perso_acheter_chaussure` int NOT NULL AUTO_INCREMENT,
   `fk_pers_id` int DEFAULT NULL,
@@ -159,7 +152,6 @@ CREATE TABLE IF NOT EXISTS `t_pers_acheter_chaussure` (
 DELETE FROM `t_pers_acheter_chaussure`;
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pers_avoir_adresse
-DROP TABLE IF EXISTS `t_pers_avoir_adresse`;
 CREATE TABLE IF NOT EXISTS `t_pers_avoir_adresse` (
   `id_pers_avoir_adresse` int NOT NULL AUTO_INCREMENT,
   `fk_pers_id` int DEFAULT NULL,
@@ -186,7 +178,6 @@ INSERT INTO `t_pers_avoir_adresse` (`id_pers_avoir_adresse`, `fk_pers_id`, `fk_a
 	(10, 10, 10);
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pers_avoir_mail
-DROP TABLE IF EXISTS `t_pers_avoir_mail`;
 CREATE TABLE IF NOT EXISTS `t_pers_avoir_mail` (
   `id_pers_avoir_mail` int NOT NULL AUTO_INCREMENT,
   `fk_pers_id` int DEFAULT NULL,
@@ -214,7 +205,6 @@ INSERT INTO `t_pers_avoir_mail` (`id_pers_avoir_mail`, `fk_pers_id`, `fk_mail_id
 	(10, 10, 10, '2023-01-19 09:56:57');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pers_avoir_telephone
-DROP TABLE IF EXISTS `t_pers_avoir_telephone`;
 CREATE TABLE IF NOT EXISTS `t_pers_avoir_telephone` (
   `id_pers_avoir_telephone` int NOT NULL AUTO_INCREMENT,
   `fk_pers_id` int DEFAULT NULL,
@@ -241,7 +231,6 @@ INSERT INTO `t_pers_avoir_telephone` (`id_pers_avoir_telephone`, `fk_pers_id`, `
 	(10, 10, 10);
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_pers_avoir_travail
-DROP TABLE IF EXISTS `t_pers_avoir_travail`;
 CREATE TABLE IF NOT EXISTS `t_pers_avoir_travail` (
   `id_pers_avoir_travail` int NOT NULL AUTO_INCREMENT,
   `fk_pers_id` int DEFAULT NULL,
@@ -268,7 +257,6 @@ INSERT INTO `t_pers_avoir_travail` (`id_pers_avoir_travail`, `fk_pers_id`, `fk_t
 	(10, 10, 10);
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_telephone
-DROP TABLE IF EXISTS `t_telephone`;
 CREATE TABLE IF NOT EXISTS `t_telephone` (
   `id_telephone` int NOT NULL AUTO_INCREMENT,
   `numero_telephone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
@@ -290,7 +278,6 @@ INSERT INTO `t_telephone` (`id_telephone`, `numero_telephone`) VALUES
 	(10, '978 000 01 02');
 
 -- Listage de la structure de table engler_theo_info1b_shoes_164_2023. t_travail
-DROP TABLE IF EXISTS `t_travail`;
 CREATE TABLE IF NOT EXISTS `t_travail` (
   `id_travail` int NOT NULL AUTO_INCREMENT,
   `profession` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
